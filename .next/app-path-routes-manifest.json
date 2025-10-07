@@ -1,0 +1,9 @@
+{
+  "/_not-found": "/_not-found",
+  "/page": "/",
+  "/course/[id]/page": "/course/[id]",
+  "/exam/[courseId]/page": "/exam/[courseId]",
+  "/certificate/[courseId]/page": "/certificate/[courseId]",
+  "/docs/[courseId]/page": "/docs/[courseId]",
+  "/quiz/[courseId]/[topicId]/page": "/quiz/[courseId]/[topicId]"
+}
