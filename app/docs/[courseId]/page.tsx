@@ -313,7 +313,14 @@ export default function DocsPage() {
     setProgress(storage.getProgress(courseId));
   };
 
+  const handleTopicSelect = (topicId: string) => {
+    setSelectedTopic(topicId);
+    // Auto-close sidebar on mobile after selecting a topic
+    setSidebarOpen(false);
+  };
+
   if (!mounted) return null;
+
   if (!course) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
@@ -326,6 +333,7 @@ export default function DocsPage() {
       </div>
     );
   }
+
   if (!courseDocs) {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col">
@@ -385,7 +393,7 @@ export default function DocsPage() {
             return (
               <button
                 key={topicId}
-                onClick={() => setSelectedTopic(topicId)}
+                onClick={() => handleTopicSelect(topicId)}
                 className={`w-full text-left p-3 rounded-lg transition-all ${isSelected
                   ? 'bg-blue-100 border-2 border-blue-500 text-blue-900'
                   : 'hover:bg-slate-100 border-2 border-transparent'
@@ -410,7 +418,7 @@ export default function DocsPage() {
       )}
 
       {/* Content */}
-      <main className="flex-1 ml-0 sm:ml-64 overflow-auto p-6">
+      <main className="flex-1 ml-0 sm:ml-64 overflow-auto p-4 sm:p-6">
         {/* Mobile toggle */}
         <div className="flex justify-end sm:hidden mb-4">
           <Button variant="ghost" onClick={() => setSidebarOpen(true)}>
@@ -419,11 +427,11 @@ export default function DocsPage() {
         </div>
 
         {currentTopicData ? (
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-6 flex items-center justify-between">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <h1 className="text-3xl font-bold text-slate-900">{currentTopicData.title}</h1>
               {isTopicCompleted && (
-                <Badge className="bg-green-600">
+                <Badge className="bg-green-600 flex items-center">
                   <CheckCircle className="h-3 w-3 mr-1" />
                   Completed
                 </Badge>
@@ -442,14 +450,14 @@ export default function DocsPage() {
               {!isTopicCompleted && (
                 <Button
                   onClick={() => markTopicComplete(selectedTopic!)}
-                  className="bg-green-600 hover:bg-green-700"
+                  className="bg-green-600 hover:bg-green-700 flex items-center"
                 >
                   <CheckCircle className="mr-2 h-4 w-4" />
                   Mark as Complete
                 </Button>
               )}
-              <Link href={`/quiz/${courseId}/${selectedTopic}`} className="ml-auto">
-                <Button className="bg-blue-600 hover:bg-blue-700 flex items-center">
+              <Link href={`/quiz/${courseId}/${selectedTopic}`} className="ml-auto w-full sm:w-auto">
+                <Button className="bg-blue-600 hover:bg-blue-700 flex items-center justify-center w-full sm:w-auto">
                   <PlayCircle className="mr-2 h-4 w-4" />
                   Take Quiz
                 </Button>
