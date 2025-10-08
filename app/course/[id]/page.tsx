@@ -57,7 +57,7 @@ export default function CoursePage() {
             <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
               <BookOpen className="h-12 w-12 text-white" />
             </div>
-            <div>
+            <div style={{ overflowWrap: 'anywhere' }}>
               <Badge className="bg-white/30 text-white mb-2">{course.level}</Badge>
               <h1 className="text-4xl font-bold mb-2">{course.title}</h1>
               <p className="text-blue-100 text-lg">{course.shortDesc}</p>

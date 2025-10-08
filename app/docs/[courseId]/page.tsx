@@ -367,7 +367,7 @@ export default function DocsPage() {
     <div className="min-h-screen flex bg-slate-50">
       {/* Sidebar */}
       <aside
-        className={`bg-white border-r h-screen fixed top-0 left-0 z-20 w-64 flex flex-col transition-transform duration-300
+        className={`mt-20 bg-white border-r h-screen fixed top-0 left-0 z-20 w-64 flex flex-col transition-transform duration-300
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
         `}
       >

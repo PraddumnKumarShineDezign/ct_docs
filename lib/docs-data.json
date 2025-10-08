@@ -1,4 +1,86 @@
 {
+  "fundamentals": {
+    "introduction-to-computers": {
+      "title": "Introduction to Computers",
+      "content": "# Introduction to Computers\n\nA computer is an electronic device that can store, retrieve, and process data. It performs tasks according to instructions provided by a program."
+    },
+    "computer-full-form": {
+      "title": "Computer Full Form",
+      "content": "COMPUTER stands for **Common Operating Machine Purposely Used for Technological and Educational Research**."
+    },
+    "computer-introduction": {
+      "title": "Computer Introduction",
+      "content": "A computer is a machine that takes input, processes it, stores data, and produces output.\n\n**Example:** Using a computer, you can calculate monthly expenses in seconds instead of manually."
+    },
+    "definition-and-characteristics-of-computers": {
+      "title": "Definition and Characteristics of Computers",
+      "content": "Computers are fast, accurate, and can automate tasks. Key characteristics:\n- **Speed**: Performs millions of calculations per second\n- **Accuracy**: Very low error rate\n- **Automation**: Works automatically once programmed\n- **Storage**: Can store large amounts of data\n- **Multitasking**: Can run multiple programs simultaneously"
+    },
+    "weakness-and-strength-of-computers": {
+      "title": "Weakness and Strength of Computers",
+      "content": "**Strengths:**\n- High speed and accuracy\n- Large storage capacity\n- Automation of tasks\n\n**Weaknesses:**\n- Cannot think like humans\n- Requires electricity\n- Prone to viruses and hacking"
+    },
+    "history-of-computers-and-generations": {
+      "title": "History of Computers and Generations",
+      "content": "Computers have evolved through generations:\n1. **First Generation (1940-1956)**: Vacuum Tubes\n2. **Second Generation (1956-1963)**: Transistors\n3. **Third Generation (1964-1971)**: Integrated Circuits\n4. **Fourth Generation (1971-Present)**: Microprocessors\n5. **Fifth Generation (Present-Future)**: Artificial Intelligence"
+    },
+    "types-of-computers": {
+      "title": "Types of Computers",
+      "content": "1. **Desktop**: Stationary, office/home use\n2. **Laptop**: Portable, built-in screen\n3. **Tablet**: Touch-screen portable device\n4. **Smartphone**: Mobile computing device"
+    },
+    "classification-by-purpose": {
+      "title": "Classification by Purpose",
+      "content": "1. **Analog**: Continuous data processing\n2. **Digital**: Processes numeric data\n3. **Hybrid**: Combination of analog and digital\n\n**Example:** A digital computer calculates numbers, analog measures temperature, and hybrid can do both."
+    },
+    "applications-of-computers": {
+      "title": "Applications of Computers",
+      "content": "- **Education:** Online learning platforms\n- **Business:** Accounting and billing software\n- **Healthcare:** Hospital management systems\n- **Entertainment:** Video games and movies"
+    },
+    "computer-system-components": {
+      "title": "Computer System Components",
+      "content": "A computer system consists of **Hardware**, **Software**, and **Humanware** (users)."
+    },
+    "hardware": {
+      "title": "Hardware",
+      "content": "Physical components of a computer:\n\n### Input Devices\n- Keyboard, Mouse, Scanner, Microphone\n\n### Output Devices\n- Monitor, Printer, Speakers, Projector\n\n### Storage Devices\n- HDD, SSD, USB Drives, CD/DVD\n\n### CPU & Memory\n- CPU (ALU, CU, Registers)\n- RAM (Primary memory)\n- Hard Disk/SSD (Secondary memory)"
+    },
+    "software": {
+      "title": "Software",
+      "content": "Programs that control hardware and perform tasks:\n\n### System Software\n- Operating System (Windows, Linux, macOS)\n- Utility Programs (Antivirus, Disk Cleanup)\n\n### Application Software\n- Word Processor, Spreadsheets, Web Browsers\n\n### Utility Software\n- Backup, Antivirus, Disk Formatter\n\n### Firmware & Middleware\n- Firmware: Embedded software in hardware\n- Middleware: Connects different software systems"
+    },
+    "humanware": {
+      "title": "Humanware",
+      "content": "Users who operate and interact with the computer system."
+    },
+    "computer-architecture-organization": {
+      "title": "Computer Architecture & Organization",
+      "content": "### Block Diagram\nShows interaction between Input, Output, CPU, Memory, and Storage.\n\n### Von Neumann Architecture\nProgram instructions and data share the same memory.\n\n### Functional Units\n- Input Unit\n- Output Unit\n- Memory Unit\n- Arithmetic & Logic Unit (ALU)\n- Control Unit (CU)\n\n### Data Representation\n- Bits, Bytes, Words\n- ASCII, Unicode, EBCDIC\n\n### Number Systems\n- Binary, Decimal, Octal, Hexadecimal\n- Conversion between systems\n\n### Binary Arithmetic\n- Addition, Subtraction, Multiplication, Division\n- 1’s and 2’s Complement\n\n### Logic Gates & Boolean Algebra\n- AND, OR, NOT, NAND, NOR, XOR"
+    },
+    "memory-and-storage": {
+      "title": "Memory and Storage",
+      "content": "### Primary Memory\n- RAM (SRAM, DRAM), ROM (PROM, EPROM, EEPROM)\n\n### Secondary Memory\n- HDD, SSD, CD/DVD\n\n### Cache Memory\n- Fast memory between CPU and RAM\n\n### Virtual Memory\n- Uses disk space to extend RAM temporarily\n\n### Flash Memory\n- Used in USB drives and SSDs\n\n### Memory Hierarchy\n- Registers → Cache → RAM → Secondary storage\n\n### Access Types\n- Sequential, Direct, Random"
+    },
+    "operating-systems": {
+      "title": "Operating Systems",
+      "content": "### Introduction to OS\nSoftware that manages hardware and software resources.\n\n### Types of OS\n- Windows, Linux, macOS, Real-Time, Batch, Distributed\n\n### File Management & User Interface\n- CLI (Command Line Interface), GUI (Graphical User Interface)"
+    },
+    "networking-basics": {
+      "title": "Networking Basics",
+      "content": "### Types of Networks\n- LAN, WAN, MAN, PAN\n\n### Network Devices\n- Hub, Switch, Router, Modem, Gateway\n\n### Protocols\n- TCP/IP, HTTP, FTP, SMTP, DNS\n\n### IP Addressing\n- IPv4, IPv6"
+    },
+    "data-security-cybersecurity": {
+      "title": "Data Security & Cybersecurity",
+      "content": "### Computer Security Importance\nProtect data and systems.\n\n### Types of Threats\n- Virus, Worm, Trojan, Phishing, Ransomware\n\n### Security Measures\n- Antivirus, Firewall, Encryption, Authentication\n\n### Cyber Ethics & Laws\n- Legal and ethical usage of computers"
+    },
+    "computer-programming-basics": {
+      "title": "Computer Programming Basics",
+      "content": "### Algorithms & Flowcharts\nStep-by-step procedure to solve a problem.\n\n### Programming Languages\n- Low-level, High-level, SQL\n\n### Translators\n- Compiler, Interpreter, Assembler\n\n### Control Structures & Loops\n- If-Else, For, While, Switch\n\n### Introduction to OOP\n- Classes, Objects, Inheritance, Polymorphism"
+    },
+    "practical-computer-skills": {
+      "title": "Practical Computer Skills",
+      "content": "### MS Office Basics\n- Word, Excel, PowerPoint, Access\n\n### Internet & Email Usage\n- Browsers, Gmail, Online communication\n\n### File & Folder Management\n- Create, copy, move, delete files and folders\n\n### Safe Browsing Practices\n- Antivirus, secure sites, strong passwords\n\n### Basic Troubleshooting\n- Restarting programs, checking connections, software updates"
+    }
+  },
   "dca": {
     "computer-fundamentals": {
       "title": "Computer Fundamentals",
