@@ -1,8 +1,8 @@
 export interface UserProgress {
   courseId: string;
-  completedTopics: string[];
+  completedTopics: number[];
   quizScores: {
-    [topicId: string]: {
+    [topicId:number]: {
       score: number;
       total: number;
       percentage: number;
@@ -67,7 +67,7 @@ export const storage = {
     );
   },
 
-  markTopicComplete(courseId: string, topicId: string): void {
+  markTopicComplete(courseId: string, topicId: number): void {
     const progress = this.getProgress(courseId);
     if (!progress.completedTopics.includes(topicId)) {
       progress.completedTopics.push(topicId);
@@ -77,7 +77,7 @@ export const storage = {
 
   saveQuizScore(
     courseId: string,
-    topicId: string,
+    topicId: number,
     score: number,
     total: number
   ): void {

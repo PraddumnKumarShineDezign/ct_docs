@@ -1,0 +1,55 @@
+{
+  "fundamentals": {
+    "introduction-to-computer": {
+      "title": "Introduction to Computers",
+      "topics": [
+        {
+          "title": "Introduction to Computers",
+          "content": "# Introduction to Computers\n\nA computer is an electronic device that can store, retrieve, and process data. It performs tasks according to instructions provided by a program."
+        },
+        {
+          "title": "Computer Full Form",
+          "content": "COMPUTER stands for **Common Operating Machine Purposely Used for Technological and Educational Research**."
+        },
+        {
+          "title": "Computer machine",
+          "content": "A computer is a machine that takes input, processes it, stores data, and produces output.\n\n**Example:** Using a computer, you can calculate monthly expenses in seconds instead of manually."
+        },
+        {
+          "title": "Definition and Characteristics of Computers",
+          "content": "Computers are fast, accurate, and can automate tasks. Key characteristics:\n- **Speed**: Performs millions of calculations per second\n- **Accuracy**: Very low error rate\n- **Automation**: Works automatically once programmed\n- **Storage**: Can store large amounts of data\n- **Multitasking**: Can run multiple programs simultaneously"
+        },
+        {
+          "title": "Weakness and Strength of Computers",
+          "content": "**Strengths:**\n- High speed and accuracy\n- Large storage capacity\n- Automation of tasks\n\n**Weaknesses:**\n- Cannot think like humans\n- Requires electricity\n- Prone to viruses and hacking"
+        }
+      ]
+    },
+
+    "history-of-computers-and-generations": {
+      "title": "History of Computers and Generations",
+      "topics": [
+        {
+          "title": "History of Computers and Generations",
+          "content": "Computers have evolved through generations:\n1. **First Generation (1940-1956)**: Vacuum Tubes\n2. **Second Generation (1956-1963)**: Transistors\n3. **Third Generation (1964-1971)**: Integrated Circuits\n4. **Fourth Generation (1971-Present)**: Microprocessors\n5. **Fifth Generation (Present-Future)**: Artificial Intelligence"
+        },
+        {
+          "title": "Computer Full Form",
+          "content": "COMPUTER stands for **Common Operating Machine Purposely Used for Technological and Educational Research**."
+        },
+        {
+          "title": "Computer Introduction",
+          "content": "A computer is a machine that takes input, processes it, stores data, and produces output.\n\n**Example:** Using a computer, you can calculate monthly expenses in seconds instead of manually."
+        },
+        {
+          "title": "Definition and Characteristics of Computers",
+          "content": "Computers are fast, accurate, and can automate tasks. Key characteristics:\n- **Speed**: Performs millions of calculations per second\n- **Accuracy**: Very low error rate\n- **Automation**: Works automatically once programmed\n- **Storage**: Can store large amounts of data\n- **Multitasking**: Can run multiple programs simultaneously"
+        },
+        {
+          "title": "Weakness and Strength of Computers",
+          "content": "**Strengths:**\n- High speed and accuracy\n- Large storage capacity\n- Automation of tasks\n\n**Weaknesses:**\n- Cannot think like humans\n- Requires electricity\n- Prone to viruses and hacking"
+        }
+      ]
+    }
+  }
+}

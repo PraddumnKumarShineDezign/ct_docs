@@ -1,52 +1,69 @@
-
-"use client"
+"use client";
 import { BookOpen, CheckCircle, MoreVertical } from "lucide-react";
 import coursesData from "@/lib/courses-data.json";
-import docsData from "@/lib/docs-data.json";
-import { storage } from '@/lib/storage';
+import docsData from "@/lib/docs-data1.json";
+import { storage } from "@/lib/storage";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-export default function Sidebar() {
+interface parentData {
+  CourseId: string;
+  onHandleSectionClick: (sectionId: number) => void;
+  onHandleTopicClick: (topicId: number) => void;
+}
+interface Topic {
+  title: string;
+  content: string;
+}
+interface Heading {
+  title: string;
+  topics: Topic[];
+}
+
+export default function Sidebar({
+  CourseId,
+  onHandleSectionClick,
+  onHandleTopicClick,
+}: parentData) {
   const params = useParams();
-  const courseId = params.courseId as string;
+  const courseId = CourseId as string;
   const courseDocs = (docsData as any)[courseId];
   const [progress, setProgress] = useState<any>(null);
-  const [mounted,setMounted]=useState(false);
+  const [mounted, setMounted] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const course = coursesData?.find((c) => c?.id === courseId);
-  
 
-   useEffect(() => {
-      setMounted(true);
-      if (courseId) {
-        const userProgress = storage.getProgress(courseId);
-        setProgress(userProgress);
-  
-        if (courseDocs) {
-          const firstTopic = Object.keys(courseDocs)[0];
-          setSelectedTopic(firstTopic);
-        }
+  useEffect(() => {
+    setMounted(true);
+    if (courseId) {
+      const userProgress = storage.getProgress(courseId);
+      setProgress(userProgress);
+
+      if (courseDocs) {
+        const firstTopic = Object.keys(courseDocs)[0];
+        setSelectedTopic(firstTopic);
       }
-    }, [courseId, courseDocs]);
+    }
+  }, [courseId, courseDocs]);
 
-    
-    const handleTopicSelect = (topicId: string) => {
-    setSelectedTopic(topicId);
-    // Auto-close sidebar on mobile after selecting a topic
-    setSidebarOpen(false);
-  };
+  if (!mounted) return null;
 
-    if(!mounted) return null;
-
-    if (!course) {
+  if (!course) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-slate-900 mb-4">Course Not Found</h1>
+          <h1 className="text-2xl font-bold text-slate-900 mb-4">
+            Course Not Found
+          </h1>
           <Link href="/">
             <Button>Back to Home</Button>
           </Link>
@@ -54,11 +71,7 @@ export default function Sidebar() {
       </div>
     );
   }
-
-  const topics = Object.entries(courseDocs);
-
-
-
+  const topics = Object.entries(courseDocs) as [string, Heading][];
   return (
     <>
       <aside
@@ -73,36 +86,35 @@ export default function Sidebar() {
               <p className="text-sm text-blue-100">Course Documentation</p>
             </div>
           </div>
-          {/* <button
-            className="sm:hidden text-white"
-            onClick={() => setSidebarOpen(false)}
-          > */}
-          {/* <MoreVertical className="h-5 w-5" />
-          </button> */}
         </div>
         <div className="flex-1 overflow-y-auto p-4 space-y-2">
-          {topics.map(([topicId, topicData]: [string, any]) => {
-            const isCompleted = progress?.completedTopics.includes(topicId);
-            const isSelected = selectedTopic === topicId;
-            return (
-              <button
-                key={topicId}
-                onClick={() => handleTopicSelect(topicId)}
-                className={`w-full text-left p-3 rounded-lg transition-all ${
-                  isSelected
-                    ? "bg-blue-100 border-2 border-blue-500 text-blue-900"
-                    : "hover:bg-slate-100 border-2 border-transparent"
-                }`}
+          <Accordion
+            type="multiple"
+            className="w-full max-w-2xl mx-auto space-y-4"
+          >
+            {topics.map(([keyId, section], idx) => (
+              <AccordionItem
+                key={keyId}
+                value={keyId}
+                onClick={() => onHandleSectionClick(idx)}
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">{topicData.title}</span>
-                  {isCompleted && (
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  )}
-                </div>
-              </button>
-            );
-          })}
+                <AccordionTrigger>{section.title}</AccordionTrigger>
+                <AccordionContent>
+                  <ul className="space-y-2">
+                    {section.topics.map((topic, idx) => (
+                      <li
+                        key={idx}
+                        className="cursor-pointer hover:text-blue-600"
+                        onClick={() => onHandleTopicClick(idx)}
+                      >
+                        {topic.title}
+                      </li>
+                    ))}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </aside>
     </>
