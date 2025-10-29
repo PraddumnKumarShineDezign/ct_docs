@@ -38,7 +38,8 @@ export default function Sidebar({
   const courseDocs = (docsData as any)[courseId];
   const [progress, setProgress] = useState<any>(null);
   const [mounted, setMounted] = useState(false);
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+  const [openSection, setOpenSection] = useState<string | null>(null);
+  const [selectedTopic, setSelectedTopic] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const course = coursesData?.find((c) => c?.id === courseId);
 
@@ -49,8 +50,9 @@ export default function Sidebar({
       setProgress(userProgress);
 
       if (courseDocs) {
-        const firstTopic = Object.keys(courseDocs)[0];
-        setSelectedTopic(firstTopic);
+        const firstTopic = Number(Object.keys(courseDocs)[0]);
+        setOpenSection("0")
+        setSelectedTopic(0);
       }
     }
   }, [courseId, courseDocs]);
@@ -71,6 +73,9 @@ export default function Sidebar({
       </div>
     );
   }
+  // const handleSectionClicked = (idx: number) => {
+
+  // };
   const topics = Object.entries(courseDocs) as [string, Heading][];
   return (
     <>
@@ -89,25 +94,52 @@ export default function Sidebar({
         </div>
         <div className="flex-1 overflow-y-auto p-4 space-y-2">
           <Accordion
-            type="multiple"
-            className="w-full max-w-2xl mx-auto space-y-4"
+            // type="multiple"
+            // className="w-full max-w-2xl mx-auto space-y-4"
+            type="single" // only one can be open at a time
+            value={openSection ?? undefined} // controlled value
+            onValueChange={(val) => setOpenSection(val)} // update open section
+            collapsible
+            className="w-full max-w-2xl mx-auto space-y-4 "
           >
             {topics.map(([keyId, section], idx) => (
               <AccordionItem
                 key={keyId}
                 value={keyId}
-                onClick={() => onHandleSectionClick(idx)}
+                
               >
-                <AccordionTrigger>{section.title}</AccordionTrigger>
+                <AccordionTrigger
+                  className={`cursor-pointer p-1 rounded ${
+                    openSection === keyId
+                      ? "bg-blue-100 font-semibold"
+                      : "hover:bg-gray-100"
+                  }`}
+                  onClick={() => {
+                  setSelectedTopic(0);
+                  onHandleSectionClick(idx);
+                }}
+                >
+                  {section?.title}
+                </AccordionTrigger>
                 <AccordionContent>
                   <ul className="space-y-2">
-                    {section.topics.map((topic, idx) => (
+                    {section?.topics?.map((topic, idx) => (
                       <li
                         key={idx}
-                        className="cursor-pointer hover:text-blue-600"
-                        onClick={() => onHandleTopicClick(idx)}
+                        // className="cursor-pointer hover:text-blue-600"
+                        className={`cursor-pointer p-1 rounded mb-5 ${
+                          selectedTopic === idx && openSection === keyId
+                            ? "bg-blue-100 font-semibold"
+                            : "hover:bg-gray-100"
+                        }`}
+                        // onClick={() => onHandleTopicClick(idx)}
+                        onClick={() => {
+                          setOpenSection(keyId); // ensure the section is open
+                          setSelectedTopic(idx); // mark topic as selected
+                          onHandleTopicClick(idx); // call your handler
+                        }}
                       >
-                        {topic.title}
+                        {topic?.title}
                       </li>
                     ))}
                   </ul>

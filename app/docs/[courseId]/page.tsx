@@ -44,8 +44,11 @@ export default function DocsPage() {
       setProgress(userProgress);
 
       if (courseDocs) {
+        console.log("courseDocs--->",courseDocs)
         const firstTopic = Number(Object.keys(courseDocs)[0]);
-        setSelectedTopic(firstTopic);
+        console.log("firstTopic--->",firstTopic)
+        setSelectedSection(0)
+        setSelectedTopic(0);
       }
     }
   }, [courseId, courseDocs]);
@@ -56,7 +59,9 @@ export default function DocsPage() {
   };
 
   const handleSectionClick=(sectionId:number)=>{
+    console.log("sectionId-->",sectionId)
     setSelectedSection(sectionId)
+     setSelectedTopic(0);
   }
 
   const handleTopicSelect = (topicId: number) => {
